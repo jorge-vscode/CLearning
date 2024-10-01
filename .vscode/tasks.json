@@ -18,7 +18,7 @@
                 "-Wsign-conversion",
                 "-Werror",
                 "-std=c++20",
-                "${file}",
+                "${fileDirname}\\**.cpp",
                 "-o",
                 
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
