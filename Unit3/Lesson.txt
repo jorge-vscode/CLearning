@@ -1,0 +1,3 @@
+Unit 3 doesn't have any new directñy directed coding problem (that is the reason for the lack of excercises).
+
+This Unit explains how to debug, techniques and methods to the debug and it also explains integrated debuggers.
