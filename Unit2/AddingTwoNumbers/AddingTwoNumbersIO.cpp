@@ -6,7 +6,7 @@ int readNumber()
     std::cout << "Input a number: ";
 
     int x{};
-    std::cin  >> x;
+    std::cin >> x;
 
     return x;
 }
