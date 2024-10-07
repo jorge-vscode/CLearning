@@ -10,7 +10,7 @@
                 "-ggdb",
                 "-O2",
                 "-DNDEBUG",
-                "-pedantic-errors",
+                
                 "-Wall",
                 "-Weffc++",
                 "-Wextra",
