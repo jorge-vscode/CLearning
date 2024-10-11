@@ -1,5 +1,6 @@
 #include <array>
 #include <iostream>
+
 class Board
 {
 private:
@@ -63,5 +64,57 @@ private:
     }
     void boardToFEN(char currentBoard[8][8])
     {
+        int aux{0};
+        currentBoardFEN = "";
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                if (currentBoard[i][j] > 60 && aux == 0)
+                {
+                    currentBoardFEN += currentBoard[i][j];
+                }
+                else if (currentBoard[i][j] < 60)
+                {
+                    aux++;
+                }
+            }
+            if (aux != 0)
+            {
+                currentBoardFEN += std::to_string(aux);
+                aux = 0;
+            }
+            currentBoardFEN += '/';
+        }
+    }
+    void showBoard()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (j == 8 && i == 0)
+                {
+                    continue;
+                }
+                else if (i == 0 && j != 8)
+                {
+                    std::cout << char(j + 97);
+                }
+                else if (j == 8 && i != 0)
+                {
+                    std::cout << i;
+                }
+                else if (currentBoard[i - 1][j] == false)
+                {
+                    std::cout << ' ';
+                }
+                else
+                {
+                    std::cout << currentBoard[i - 1][j];
+                }
+            }
+            std::cout << '\n';
+        }
     }
 };
