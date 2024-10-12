@@ -1,5 +1,7 @@
 #include <vector>
 #include <array>
+#include "pieces.h"
+#include "board.h"
 
 class Pieces
 {
@@ -71,4 +73,31 @@ private:
     bool getEnPassant() const { return enPassant; }
     bool getKingSideCastling() const { return kingSideCastling; }
     bool getQueenSideCastling() const { return queenSideCastling; }
+    void findPossibleMoves()
+    {
+        switch (pieceType)
+        {
+        case 'p':
+
+            break;
+        case 'b':
+
+            break;
+        case 'n':
+
+            break;
+        case 'r':
+
+            break;
+        case 'k':
+
+            break;
+        case 'q':
+
+            break;
+
+        default:
+            break;
+        }
+    }
 };

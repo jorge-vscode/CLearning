@@ -1,13 +1,17 @@
 #include <array>
 #include <iostream>
+#include "pieces.h"
+#include "board.h"
 
 class Board
 {
 private:
-    bool turn;
+    bool turn; // true = white, false = black
     std::array<std::array<char, 8>, 8> currentBoard;
     std::string currentBoardFEN;
-    Board(bool turn, char currentBoard[8][8])
+
+public:
+    Board(bool turn, char currentBoard[8][8], std::string currentBoardFEN)
     {
         this->turn = turn;
         for (int i = 0; i < 8; i++)
@@ -17,6 +21,7 @@ private:
                 this->currentBoard[i][j] = currentBoard[i][j];
             }
         }
+        this->currentBoardFEN = currentBoardFEN;
     }
     void setTurn(bool turn)
     {
