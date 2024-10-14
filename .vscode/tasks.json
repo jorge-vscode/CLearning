@@ -12,7 +12,7 @@
                 "-DNDEBUG",
                 "-pedantic-errors",
                 "-Wall",
-                "-Weffc++",
+                
                 "-Wextra",
                 "-Wconversion",
                 "-Wsign-conversion",
