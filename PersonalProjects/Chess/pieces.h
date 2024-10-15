@@ -17,10 +17,10 @@ private:
     bool kingSideCastling;
     bool queenSideCastling;
 public:
-    Pieces(std::array<int,2> position, bool colour, char pieceType, bool moved, bool pin, bool enPassant, bool kingSideCastling, bool queenSideCastling)
+    Pieces(int row, int column, bool colour, char pieceType, bool moved, bool pin, bool enPassant, bool kingSideCastling, bool queenSideCastling)
     {
-        this->position[0] = position[0];
-        this->position[1] = position[1];
+        this->position[0] = row;
+        this->position[1] = column;
         this->colour = colour;
         this->pieceType = pieceType;
         this->moved = moved;
@@ -66,7 +66,8 @@ public:
     {
         this->queenSideCastling = queenSideCastling;
     }
-    std::array<int, 2> getPosition() const { return {position[0], position[1]}; }
+    int getPositionY() const { return {position[0]}; }
+    int getPositionX() const { return {position[1]}; }
     bool getColour() const { return colour; }
     char getPieceType() const { return pieceType; }
     const std::vector<std::array<int, 2>> &getPossibleMoves() const { return possibleMoves; }
@@ -103,4 +104,45 @@ public:
         }
     }
 };
+std::vector<Pieces> pieces;
+void setupPieces()
+{
+    //rook objects in Pieces
+    pieces.push_back(Pieces(0, 0, false, 'r', false, false, false, false, false));
+    pieces.push_back(Pieces(0, 7, false, 'r', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 0, true, 'r', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 7, true, 'r', false, false, false, false, false));
+
+    //knight objects in Pieces  
+    pieces.push_back(Pieces(0, 1, false, 'n', false, false, false, false, false));
+    pieces.push_back(Pieces(0, 6, false, 'n', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 1, true, 'n', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 6, true, 'n', false, false, false, false, false));
+
+    //bishop objects in Pieces
+    pieces.push_back(Pieces(0, 2, false, 'b', false, false, false, false, false));
+    pieces.push_back(Pieces(0, 5, false, 'b', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 2, true, 'b', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 5, true, 'b', false, false, false, false, false));
+
+    //pawn objects in Pieces
+    pieces.push_back(Pieces(1, 0, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 1, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 2, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 3, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 4, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 5, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 6, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(1, 7, false, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 0, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 1, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 2, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 3, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 4, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 5, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 6, true, 'p', false, false, false, false, false));
+    pieces.push_back(Pieces(6, 7, true, 'p', false, false, false, false, false));
+
+    
+}
 #endif

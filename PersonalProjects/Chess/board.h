@@ -107,7 +107,7 @@ public:
                 }
                 else if (j == 8 && i != 0)
                 {
-                    std::cout << i;
+                    std::cout << 9 - i;
                 }
                 else if (currentBoard[i - 1][j] == false)
                 {
