@@ -143,6 +143,13 @@ void setupPieces()
     pieces.push_back(Pieces(6, 6, true, 'p', false, false, false, false, false));
     pieces.push_back(Pieces(6, 7, true, 'p', false, false, false, false, false));
 
+    //king objects in Pieces
+    pieces.push_back(Pieces(0, 4, false, 'k', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 4, true, 'k', false, false, false, false, false));
+
+    //queen objects in Pieces
+    pieces.push_back(Pieces(0, 3, false, 'q', false, false, false, false, false));
+    pieces.push_back(Pieces(7, 3, true, 'q', false, false, false, false, false));
     
 }
 #endif

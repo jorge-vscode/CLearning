@@ -9,16 +9,16 @@ class Board
 {
 private:
     bool turn = true; // true = white, false = black
-    char currentBoard[8][8] = {
-    {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
-    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-    {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-    {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-    {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-    {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-    {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-    {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}
-};
+    char currentBoard[8][8]={
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '},
+        {' ',' ',' ',' ',' ',' ',' ',' '}
+    };
     std::string currentBoardFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
 public:
@@ -93,32 +93,27 @@ public:
     }
     void showBoard()
     {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (j == 8 && i == 0)
-                {
+        for(int i = 0; i<9;i++){
+            for(int j = 0; j<9;j++){
+                if(i == 0 && j == 8){
                     continue;
-                }
-                else if (i == 0 && j != 8)
-                {
-                    std::cout << char(j + 97);
-                }
-                else if (j == 8 && i != 0)
-                {
+                }else if(i == 0 && j != 8){
+                    std::cout << char('a'+j);
+                }else if(i != 0 && j == 8){
                     std::cout << 9 - i;
-                }
-                else if (currentBoard[i - 1][j] == false)
-                {
-                    std::cout << ' ';
-                }
-                else
-                {
-                    std::cout << currentBoard[i - 1][j];
+                }else{
+                    std::cout << currentBoard[i-1][j];
                 }
             }
-            std::cout << '\n';
+            std::cout<<'\n';
+        }
+    }
+    void updateCurrentBoardStatus(){
+        for(const auto& obj: pieces){
+            currentBoard[obj.getPositionY()][obj.getPositionX()]=obj.getPieceType();
+            if(obj.getColour()==true){
+                currentBoard[obj.getPositionY()][obj.getPositionX()]-=32;
+            }
         }
     }
     bool isSquareOccupied(int row,int col){
